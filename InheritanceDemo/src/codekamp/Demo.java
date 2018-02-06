@@ -1,38 +1,51 @@
 package codekamp;
 
+import java.util.Random;
+
 public class Demo {
+
+    private static Dog d1;
+    private static Cat c1;
+    private static int randomInt;
+
     public static void main(String[] args) {
-        System.out.println("Hello World!");
 
+        Random r = new Random();
 
-        Cat c1 = new Cat();
-        Cat c2 = new Cat();
+        Demo.randomInt = r.nextInt(2);
 
-        c1.name = "Mars";
+        if(Demo.randomInt == 0) {
+            Demo.d1 = new Dog();
+        } else {
+            Demo.c1 = new Cat();
+        }
 
-        c2.name = "Pluto";
+        Demo.onLeftSwipe();
+        Demo.onRightSwipe();
+        Demo.onDoubleTap();
+    }
 
-        c1.climbTree();
+    public static void onRightSwipe() {
+        if(Demo.randomInt == 0) {
+            Demo.d1.walkRight();
+        } else {
+            Demo.c1.walkRight();
+        }
+    }
 
+    public static void onLeftSwipe() {
+        if(Demo.randomInt == 0) {
+            Demo.d1.walkLeft();
+        } else {
+            Demo.c1.walkLeft();
+        }
+    }
 
-        c1.kick(c2);
-
-
-        Dog d1 = new Dog();
-        d1.name = "Bush";
-
-        d1.climbTree();
-
-
-        // in a variable of Xyz class we can store objects Xyz class and it's subclasses
-        Animal a1 = new Dog();
-        a1.name = "Clinton";
-
-
-        // At compile time: function search starts from Class of variable
-        // At run time: function search starts from Class of Object
-        a1.chaseTale();
+    public static void onDoubleTap() {
+        if(Demo.randomInt == 0) {
+            Demo.d1.doFavoiteThing();
+        } else {
+            Demo.c1.doFavoiteThing();
+        }
     }
 }
-
-//http://github.com/codekamp

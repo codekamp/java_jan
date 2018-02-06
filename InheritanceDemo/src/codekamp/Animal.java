@@ -3,11 +3,18 @@ package codekamp;
 public class Animal {
     public String name;
 
-    public void climbTree() {
-        System.out.println(this.name + " is climbing tree. Animal");
+    String xyz;
+    int x;
+
+    public void walkLeft() {
+        System.out.println("Walking to left");
     }
 
-    public void chaseTale() {
-        System.out.println(this.name + " is chasing tale. Animal");
+    public void walkRight() {
+        System.out.println("Walking to right");
+    }
+
+    public void doFavoiteThing() {
+        // later we will use abstract method
     }
 }
