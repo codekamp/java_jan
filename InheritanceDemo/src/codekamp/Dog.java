@@ -4,6 +4,8 @@ public class Dog extends Animal {
 
     public static int count = 0;
 
+    public int age = 10;
+
 //    What are constructors?
     // 1. non static methods
     // 2. Same name as class name
