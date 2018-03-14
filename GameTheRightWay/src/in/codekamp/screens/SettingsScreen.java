@@ -1,4 +1,4 @@
-package in.codekamp.screen;
+package in.codekamp.screens;
 
 import in.codekamp.main.GamePanel;
 
@@ -17,6 +17,6 @@ public class SettingsScreen extends Screen {
 
     public void draw(Graphics g) {
         g.setColor(Color.red);
-        g.drawString("this is settings screen", 10, 10);
+        g.drawString("this is settings screens", 10, 10);
     }
 }

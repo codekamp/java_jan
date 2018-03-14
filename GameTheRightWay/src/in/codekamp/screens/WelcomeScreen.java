@@ -1,4 +1,4 @@
-package in.codekamp.screen;
+package in.codekamp.screens;
 
 import in.codekamp.main.Game;
 import in.codekamp.main.GamePanel;

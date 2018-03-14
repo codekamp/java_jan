@@ -1,7 +1,8 @@
 package in.codekamp.main;
 
-import in.codekamp.screen.Screen;
-import in.codekamp.screen.WelcomeScreen;
+import in.codekamp.resources.Resources;
+import in.codekamp.screens.Screen;
+import in.codekamp.screens.WelcomeScreen;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,6 +27,8 @@ public class GamePanel extends JPanel implements KeyListener, Runnable, MouseLis
     public void addNotify() {
         super.addNotify();
 
+        Resources.load();
+
         this.currentScreen = new WelcomeScreen(this);
         Thread gameThread = new Thread(this);
         gameThread.start();
@@ -38,7 +41,7 @@ public class GamePanel extends JPanel implements KeyListener, Runnable, MouseLis
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+        this.currentScreen.onKeyPress(e.getKeyCode());
     }
 
     @Override
