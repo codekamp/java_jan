@@ -19,9 +19,12 @@ public class Resources {
     public static Image playerJumpImage;
     public static AudioClip jumpAudio;
     public static AudioClip hitAudio;
+    public static Color skyColor;
 
 
     public static void load() {
+        skyColor = new Color(103, 194, 255);
+
         try {
             grassImage = ImageIO.read(Resources.class.getClassLoader().getResourceAsStream("in/codekamp/resources/images/grass.png"));
             blockImage = ImageIO.read(Resources.class.getClassLoader().getResourceAsStream("in/codekamp/resources/images/block.png"));
@@ -32,7 +35,7 @@ public class Resources {
             playerImage5 = ImageIO.read(Resources.class.getClassLoader().getResourceAsStream("in/codekamp/resources/images/run_anim5.png"));
             playerJumpImage = ImageIO.read(Resources.class.getClassLoader().getResourceAsStream("in/codekamp/resources/images/jump.png"));
             jumpAudio = Applet.newAudioClip(Resources.class.getClassLoader().getResource("in/codekamp/resources/audios/onjump.wav"));
-            jumpAudio = Applet.newAudioClip(Resources.class.getClassLoader().getResource("in/codekamp/resources/audios/hit.wav"));
+            hitAudio = Applet.newAudioClip(Resources.class.getClassLoader().getResource("in/codekamp/resources/audios/hit.wav"));
         } catch (IOException e) {
 
         }

@@ -28,6 +28,8 @@ public class Demo {
             System.out.println("SMS sending try was successful");
         } catch (Exception a) {
             System.out.println("Send email");
+        } finally {
+
         }
 
 

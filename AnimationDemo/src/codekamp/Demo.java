@@ -7,17 +7,21 @@ import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 
-public class Demo implements KeyListener {
+public class Demo implements KeyListener, MouseListener {
 
     private static int playerYCord = 315;
     private static int playerYVel = 0;
     private static int playerYAcc = 0;
 
     private static AudioClip jumpAudio;
+
+    public static boolean paused = false;
 
     public static void main(String[] args) {
 
@@ -32,7 +36,10 @@ public class Demo implements KeyListener {
         frame.setVisible(true);
         frame.setResizable(false);
         p.setFocusable(true);
-        p.addKeyListener(new Demo());
+
+        Demo d = new Demo();
+        p.addKeyListener(d);
+        p.addMouseListener(d);
 
 
         // TODO: why this is happening. onAttach.
@@ -88,6 +95,10 @@ public class Demo implements KeyListener {
             try {
                 Thread.sleep(29);
             } catch (InterruptedException e) {
+            }
+
+            if (Demo.paused) {
+                continue;
             }
 
             if (playerXCord < 0) {
@@ -179,13 +190,15 @@ public class Demo implements KeyListener {
                 block5Visible = false;
             }
 
-            if(Demo.playerYCord < 315) {
+            if (Demo.playerYCord < 315) {
                 playerCurrentImage = playerJumpImage;
             }
 
             g.clearRect(0, 0, 800, 450);
             g.setColor(new Color(146, 212, 255));
             g.fillRect(0, 0, 800, 450);
+            g.setColor(Color.red);
+            g.fillRect(10, 10, 50, 50);
             g.drawImage(grassImage, 0, 405, null);
 
             if (block1Visible) {
@@ -227,6 +240,33 @@ public class Demo implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        if (e.getY() > 10 && e.getY() < 60 && e.getX() > 10 && e.getX() < 60) {
+            Demo.paused = !Demo.paused;
+        }
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
 
     }
 }

@@ -15,6 +15,9 @@ public class Player extends Entity {
     public Player(int x, int y) {
         super(x, y);
 
+        this.width = 72;
+        this.height = 90;
+
         this.allImages.add(Resources.playerImage1);
         this.allImages.add(Resources.playerImage2);
         this.allImages.add(Resources.playerImage3);
@@ -39,8 +42,8 @@ public class Player extends Entity {
 
     public void jump() {
         Resources.jumpAudio.play();
-        this.yVel = -25;
-        this.yAcc = 2;
+        this.yVel = -18;
+        this.yAcc = 1;
         this.inAir = true;
     }
 

@@ -1,7 +1,6 @@
 package in.codekamp.screens;
 
 import in.codekamp.entities.Block;
-import in.codekamp.entities.Entity;
 import in.codekamp.entities.Player;
 import in.codekamp.main.Game;
 import in.codekamp.main.GamePanel;
@@ -37,26 +36,39 @@ public class Stage1Screen extends Screen {
     public void update() {
         super.update();
 
-        for (Entity e: entities) {
-            if(e.x < 20) {
-                e.x = 980;
-            }
-        }
-
-        if(this.player.y >= GROUND_Y_CORD && this.player.yVel != 0) {
+        if (this.player.y >= GROUND_Y_CORD && this.player.yVel != 0) {
             this.player.y = GROUND_Y_CORD;
             this.player.land();
+        }
+
+        if (this.player.x < 0) {
+            this.gPanel.currentScreen = new GameOverScreen(this.gPanel);
+        }
+
+        for (Block b : blocks) {
+            if (b.x < 20) {
+                b.x = 980;
+                b.isVisible = true;
+            }
+
+            if (b.isColliding(this.player)) {
+                Resources.hitAudio.play();
+                this.player.x -= 50;
+                b.isVisible = false;
+            }
         }
     }
 
     public void draw(Graphics g) {
+        g.setColor(Resources.skyColor);
+        g.fillRect(0, 0, Game.GAME_WIDTH, Game.GAME_HEIGHT);
         g.drawImage(Resources.grassImage, 0, Game.GAME_HEIGHT - 45, null);
         super.draw(g);
     }
 
     @Override
     public void onKeyPress(int keyCode) {
-        if(keyCode == KeyEvent.VK_SPACE && this.player.y == GROUND_Y_CORD) {
+        if (keyCode == KeyEvent.VK_SPACE && this.player.y == GROUND_Y_CORD) {
             this.player.jump();
         }
     }

@@ -11,7 +11,7 @@ public class WelcomeScreen extends Screen {
         super(panel);
     }
 
-    private Color cicleColor = Color.red;
+    private Color circleColor = Color.red;
     private int counter = 0;
     private static final int CIRCLE_SIZE = 100;
     private static final int BUTTON_WIDTH = 200;
@@ -23,16 +23,16 @@ public class WelcomeScreen extends Screen {
         this.counter++;
         if(this.counter == 60) {
             this.counter = 0;
-            if(this.cicleColor == Color.red) {
-                this.cicleColor = Color.green;
+            if(this.circleColor == Color.red) {
+                this.circleColor = Color.green;
             } else {
-                this.cicleColor = Color.red;
+                this.circleColor = Color.red;
             }
         }
     }
 
     public void draw(Graphics g) {
-        g.setColor(this.cicleColor);
+        g.setColor(this.circleColor);
         g.fillArc(Game.GAME_WIDTH/2 - CIRCLE_SIZE/2, 20, CIRCLE_SIZE, CIRCLE_SIZE, 0, 360);
 
         g.setColor(Color.red);

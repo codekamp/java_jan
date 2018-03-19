@@ -24,7 +24,9 @@ abstract public class Screen {
 
     public void draw(Graphics g) {
         for(Entity e: entities) {
-            g.drawImage(e.image, e.x, e.y, null);
+            if(e.isVisible) {
+                g.drawImage(e.image, e.x, e.y, null);
+            }
         }
     }
 
