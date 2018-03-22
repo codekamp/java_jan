@@ -11,9 +11,32 @@ public class Demo {
 
     public static void main(String[] args) {
 
-        CodeKampFrame frame = new CodeKampFrame();
-        frame.setVisible(true);
+        Dog.world();
+        Dog.world();
+        Dog.world();
+//
+//        CodeKampFrame frame = new CodeKampFrame();
+//        frame.setVisible(true);
 
+
+
+//        Dog.Xyz.something();
+
+//        Dog d1 = new Dog();
+//        d1.name = "Mars";
+//
+//        Dog d2 = new Dog();
+//        d2.name = "Pluto";
+//
+//        Dog.Xyz x1 = d1.new Xyz();
+//        Dog.Xyz x2 = d1.new Xyz();
+//        Dog.Xyz x3 = d2.new Xyz();
+//        Dog.Xyz x4 = x1;
+//
+//        x1.a = 100;
+//        x3.a = -30;
+
+//        x3.anotherThing(x3);
 
 //        Dog d1 = new Dog() {
 //            public void talk() {

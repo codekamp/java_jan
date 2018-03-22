@@ -62,6 +62,9 @@ public class CodeKampFrame extends JFrame {
 //        }
 //    }
 
+
+    // git - git-scm.com/book, First 3 chapters.
+
     // Android - SlideNerd YouTube
     // Angular - Udemy Angular 5 complete guide
     // iOS - iTunes Paul Hegarty stanford https://itunes.apple.com/us/course/developing-ios-11-apps-with-swift/id1309275316
